@@ -1,0 +1,97 @@
+app-container()
+    alt-toolbar()
+        ng-container(start )
+            div(fxgrow="2") &nbsp;
+        ng-container(center)
+            div(fxgrow="2") &nbsp;
+        ng-container(end)
+            i.ui-social-twitter(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-facebook(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-instagram(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-googleplus(style="margin: 0 0.5vw; cursor: pointer;")
+    div(style="width: 100vw; height: 100%; margin-top: 30px;")
+        div(style="width: 100vw; height: 45vh; background-color: #000;" row content-apart align-stretch)
+            div(style="width: 20vw; height: 100%;" row content-end align-center)
+                i.ui-android-arrow-dropleft-circle(style="margin: 0 0.5vw; color: #fff; font-size: 96px; opacity: 0.5; cursor: pointer;")
+            div(style="width: 60vw; height: 100%;")
+                ui-slide3('*ngIf'="slideIndex === 0" '[state]'="slides[0].state" '[bgimage]'="slides[0].bgimage" '[title]'="slides[0].title" '[btntext]'="slides[0].btntext" )
+                ui-slide3('*ngIf'="slideIndex === 1" '[state]'="slides[1].state" '[bgimage]'="slides[1].bgimage" '[title]'="slides[1].title" '[btntext]'="slides[1].btntext" )
+                ui-slide3('*ngIf'="slideIndex === 2" '[state]'="slides[2].state" '[bgimage]'="slides[2].bgimage" '[title]'="slides[2].title" '[btntext]'="slides[2].btntext" )
+            div(style="width: 20vw; height: 100%;" row content-start align-center)
+                i.ui-android-arrow-dropright-circle(style="margin: 0 0.5vw; color: #fff; font-size: 96px; opacity: 0.5; cursor: pointer;")
+    div(style="width: 100vw; top: 47vh; left: 0; position: fixed; overflow-y: auto; overflow-x: hidden; height: 52vh;" col content-center align-start '#contentdiv')
+        div(style="width: 100vw; top: 20px; position: absolute; height: 40vh;" row content-center align-start)
+            ui-card(style="width: 100%; height: 100%; max-width: 300px; max-height: 400px; min-height: 200px;")
+                div(header)
+                    h2 Sed in finibus dui
+                div(content style="width: 100%; height: 100%; min-height: 15vh;") Aliquam lacinia interdum iaculis. Vivamus dapibus magna vitae odio tempor, eget iaculis turpis suscipit. Maecenas tristique, mi sit amet malesuada tempor, purus arcu blandit erat, sed porta magna libero non libero.
+                div(footer)
+                    button(color="primary" raised '(click)'="goTo('dashboard')" '#btnPrimary1') dashboard
+            ui-card(style="margin: 0 20px; width: 100%; height: 100%; max-width: 300px; max-height: 400px; min-height: 200px;")
+                div(header)
+                    h2 Mauris enim quis
+                div(content style="width: 100%; height: 100%; min-height: 15vh;") Phasellus non sem quis lectus elementum varius. Quisque vel accumsan nisi. Donec faucibus fringilla mi in faucibus. Donec posuere rhoncus dapibus. Aenean ornare ipsum quis varius lacinia.
+                div(footer)
+                    button(color="primary" raised '(click)'="goTo('/')" '#btnPrimary2') login
+            ui-card(style="width: 100%; height: 100%; max-width: 300px; max-height: 400px; min-height: 200px;")
+                div(header)
+                    h2 Elementum id
+                div(content style="width: 100%; height: 100%; min-height: 15vh;") Aliquam consequat risus hendrerit, elementum urna a, lobortis nibh. Aenean ut elit et nulla egestas pellentesque. Aenean dictum lorem eu pulvinar maximus. Fusce dolor odio, rhoncus quis consequat quis, posuere nec diam.
+                div(footer)
+                    button(color="primary" raised '(click)'="goTo('themes')" '#btnPrimary3') themes
+        div(style="width: 100vw; top: 40vh; position: absolute; height: 50vh;" '#mapdiv' row content-padded align-center)
+            iframe(style="height: 80%; width: 30%; border: none;" src="https://www.google.com/maps/embed/v1/place?q=Empire%20State%20Building&zoom=13&attribution_source=Google+Maps+Embed+API&key=AIzaSyBgtzKR_Wx248dAgp3XhRNrtWwYKpLnp4E" allowfullscreen)
+            div(style="height: 80%; border: none; margin: 3vmin;")
+                h1(style="font-weight: 700; margin-left: 20px;") Contact Us
+                form-input(
+                placeholder="Mikkala Jones"
+                type="text"
+                label="Your name"
+                inputId="username"
+                required="true"
+                minlength=2
+                maxlength=64
+                color="accent"
+                style="width: 100%;")
+                form-input(
+                placeholder="jones@example.org"
+                type="email"
+                label="Your email"
+                inputId="password"
+                required="true"
+                minlength=4
+                maxlength=32
+                color="accent"
+                style="width: 100%;")
+                form-textarea(
+                placeholder="Brief description of issue"
+                rows=5
+                cols=50
+                label="Description"
+                inputId="password"
+                required="true"
+                minlength=4
+                maxlength=32
+                color="accent"
+                style="width: 100%;")
+                div(style="width: 100%; padding: 14px;" row content-end align-center)
+                    button(color="dark" raised '#submitBtn') submit
+        div(style="width: 100vw; top: 90vh; position: absolute; height: 15vh;" '#footerdiv' col content-center align-center)
+            div(row content-padded align-center)
+                div(style="color: #fff;")
+                    p OUR LOCATION
+                    p 350 5th Ave
+                    p New York, NY 10118
+                    p ph: 212.555.1212
+                div(style="color: #fff;")
+                    p OUR WEBSITE
+                    p Themes
+                    p Dashboard
+                    p Login
+                div(style="color: #fff;")
+                    p OUR COMPANY
+                    p About
+                    p Legal Stuff
+                    p Terms of Service
+            div( row content-center align-center)
+                p All Rights Reserved. - &copy; 2018 - Todd Goodwin.

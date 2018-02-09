@@ -1,0 +1,69 @@
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
+import { Platform } from '../../../services/platform/platform';
+import { shady } from '../../../services/platform/utils/color-utils';
+import { ThemeService } from '../../styles/theme';
+import { SideMenu } from '../../widgets/sidemenu/sidemenu';
+
+declare var AmCharts: any;
+
+@Component({
+  selector: 'main-container',
+  templateUrl: './main-container.pug',
+  styleUrls: ['./main-container.scss']
+})
+export class MainContainer implements OnInit, AfterViewInit {
+  
+  @ViewChild('maincont') maincont;
+  
+  @Input() color: string;
+  @Input() title: string;
+  @Input() logo: string;
+  public isLandscape: boolean;
+  public isPortrait: boolean;
+  public width: number;
+  public sideBgColor;
+  
+  constructor(private platform: Platform, private themeService: ThemeService) {
+    themeService.activeTheme.subscribe((theme) => {
+      const colorDark = shady(theme.light, -0.1);
+      const colorLt = shady(theme.light, 0.1);
+      setTimeout(() => {
+        this.maincont.nativeElement.style.backgroundColor = theme.light;
+        this.maincont.nativeElement.style.backgroundImage = `-webkit-linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+        this.maincont.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+        this.maincont.nativeElement.style.color = theme.dark;
+
+       
+      });
+    
+    });
+  }
+  
+  ngOnInit() {
+    this.init();
+  }
+  
+  private init = () => {
+    window.addEventListener('resize', () => {
+      setTimeout(() => {
+        this.isLandscape = this.platform.isLandscape();
+        this.isPortrait = this.platform.isPortrait();
+        this.width = window.innerWidth;
+      });
+    });
+    this.isLandscape = this.platform.isLandscape();
+    this.isPortrait = this.platform.isPortrait();
+    this.width = window.innerWidth;
+  }
+  
+  ngAfterViewInit() {
+    this.viewInit();
+  }
+  
+  private viewInit = () => {
+    setTimeout(() => {
+      // do something
+    });
+  }
+  
+}

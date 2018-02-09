@@ -1,0 +1,47 @@
+@import "../../../lib/styles/imports";
+
+
+.signup-bg {
+	background: linear-gradient(135deg, rgba(color-shade($signup-bg, -0.2), 1), rgba(color-shade($signup-bg, 0.1), 1));
+	width: 100%;
+	height: 100%;
+	filter: contrast(150%);
+}
+
+.login-bg-image {
+	background-position: top left;
+	animation: animatedBackground 90000ms linear infinite;
+	animation-direction: alternate;
+	filter: blur(4px);
+}
+
+@keyframes placeholder-out {
+	from {
+		border: 1px solid rgba(122, 122, 122, 0.7);
+		box-shadow: none;
+	}
+	to {
+		border: 1px solid color-shade($login-bg, 0.1);
+		box-shadow: 2px 2px 2px 0 rgba(color-shade($login-bg, 0.1), 0.3), -2px -2px 2px 0 rgba(color-shade($login-bg, 0.1), 0.3);
+	}
+}
+
+@keyframes placeholder-in {
+	from {
+		border: 1px solid color-shade($login-bg, 0.1);
+		box-shadow: 2px 2px 2px 0 rgba(color-shade($login-bg, 0.1), 0.3), -2px -2px 2px 0 rgba(color-shade($login-bg, 0.1), 0.3);
+	}
+	to {
+		border: 1px solid rgba(122, 122, 122, 0.7);
+		box-shadow: none;
+	}
+}
+
+@keyframes animatedBackground {
+	0% {
+		background-position: top left;
+	}
+	100% {
+		background-position: center;
+	}
+}

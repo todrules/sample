@@ -1,0 +1,103 @@
+app-container()
+    div.circlediv(row content-start align-start '#contentdiv')
+        div.imgscreen(row content-start align-start nowrap '#imgscreen')
+            div.profilediv('#profilediv')
+                div(style="border-radius: 0; padding: 2vh 2vw; min-height: 4vh;" '#cardheader' nowrap row content-start align-center)
+                    div(row content-start align-center fxshrink="3" '(click)'="goTo('home')")
+                        i.material-icons(style="color: #fff; cursor: pointer;") home
+                        h4(style="color: #fff; cursor: pointer; margin: 0; margin-left: 8px;" ) home
+                    div(row content-start align-center '(click)'="goTo('dashboard')")
+                        i.material-icons(style="color: #fff; cursor: pointer;") dashboard
+                        h4(style="color: #fff; cursor: pointer; margin: 0; margin-left: 8px;" ) dashboard
+                div(style="width: 100%; height: 100%; padding-top: 5vh;" col content-start align-center nowrap)
+                    div(style="width: 100%; padding: 0 3vw;")
+                        h5.display('#profile') Profile
+                    div(row content-start align-start nowrap)
+                        div(style="width: 50%;")
+                            div( '#imgdiv' style="background-image: url('/assets/img/profile1.jpeg'); background-position: top center; background-repeat: no-repeat; background-size: 120%; background-blend-mode: color; width: 14vmin; height: 14vmin; border-radius: 0; filter: brightness(1.2) opacity(0.9); margin-left: 3vw;")
+                        div(col content-start align-start nowrap style="width: 50%; padding-top: 2vh;")
+                            h3.display(style="font-weight: 700; margin-bottom: 0;" '#firstname') Todd&nbsp;
+                                div('#lastname' style="padding-top: 2px;") Goodwin
+                    h4(style="margin: 7vh 0 2vh 0;" '#firsttier') &nbsp;&nbsp; systems analyst | web developer | digital architect
+                    h3('#social' style="margin-top: 1vh; margin-bottom: 4vh;")
+                        i.ui-social-twitter(style="margin: 1vh 0.75vw; cursor: pointer;")
+                        i.ui-social-github(style="margin: 1vh 0.75vw; cursor: pointer;")
+                        i.ui-social-linkedin(style="margin: 1vh 0.75vw; cursor: pointer;")
+                        i.ui-social-googleplus(style="margin: 1vh 0.75vw; cursor: pointer;")
+                    hr(style="color: #000; height: 1px; width: 80%; margin: 0 10px;")
+                    div(style="width: 100%; padding: 3vh 2vw 0 3vw;")
+                        h5.display('#contact') Contact
+                    div(style="width: 100%; padding: 1vh 0 0 3vw;" col content-start align-start)
+                        h4('#phonelabel') phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            a(href="tel:4422353530" '#phonelink') 442.235.3530
+                        h4('#emaillabel') email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            a(href="email:todd@digitaltech.pro?subject=Resume" '#emaillink') todd@digitaltech.pro
+                        h4('#linkedlabel') linkedin:&nbsp;&nbsp;&nbsp;
+                            a(href="http://linkedin.com/in/gtgoodwin" '#linkedlink') http://linkedin.com/in/gtgoodwin
+                div(footer)
+            div(style="overflow-y: auto;")
+                div(style="width: 100%; height: 100vh;" col content-start align-center nowrap)
+                    div.effect3(style="width: 75%; margin-top: 5vh;" '#card1')
+                        div(style="padding: 1vh 1vw;" '#header1')
+                            h1(style="margin: 0;") Experience
+                        div(style="padding: 1vh 1vw;")
+                            ng-container('*ngFor'="let job of jobs")
+                                div(row content-apart align-center)
+                                    h3(style="margin: 0; margin-bottom: 0.5rem;") {{job.jobtitle}}
+                                    div {{job.dates}}
+                                h5 {{job.employer}}
+                                ul()
+                                    li('*ngFor'="let bullet of job.bullets") {{bullet.text}}
+                    div.effect2(style="width: 75%; margin-top: 5vh;" '#card2')
+                        div(style="padding: 1vh 1vw;" '#header2')
+                            h1(style="margin: 0;") Skills
+                        div(style="padding: 1vh 1vw;" row content-start align-start)
+                            ng-container('*ngFor'="let skill of skills")
+                                div(style="text-align: center; width: 25%; margin: 1vh 0;" col content-center align-center nowrap)
+                                    ui-gauge('[amount]'="skill.amount" '[caption]'="skill.caption" col content-center align-center nowrap)
+                    div.effect3(style="width: 75%; margin-top: 5vh;" '#card3')
+                        div(style=" padding: 1vh 1vw;" '#header3')
+                            h1(style="margin: 0;") Training & Education
+                        div(style="padding: 1vh 1vw;")
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") University of Phoenix
+                                div 2002 - 2003
+                            h5 Computer Science (No degree)
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") El Paso Community College
+                                div 1998 - 2000
+                            h5 Associate of Applied Science, Computer Information Systems
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") Basic NCO Course (BNCOC)
+                                div 1997
+                            h5 NCOPD - NCO Professional Development Ribbon
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") Primary Leadership Development Course (PLDC)
+                                div 1995
+                            h5 NCOPD - NCO Professional Development Ribbon
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") Nuclear, Biological, and Chemical Defense
+                                div 1995
+                            h5 Distinguished Honor Graduate - Certificate of Achievement
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") Hawk Missile System Training
+                                div 1993
+                            h5 Distinguished Honor Graduate - Army Achievement Medal
+                            div(row content-apart align-center)
+                                h4(style="margin: 0.5rem 0;") Basic Training - US Army
+                                div 1992
+                            h5 Push-up Guru
+                    div.effect4(style="width: 75%; margin-top: 5vh; margin-bottom: 4vh;" '#card4')
+                        div(style="padding: 1vh 1vw;" '#header4')
+                            h1(style="margin: 0;") Endorsements
+                        div(style="padding: 1vh 1vw;")
+                            div(row content-apart align-center)
+                                h3(style="margin: 0; margin-bottom: 0.5rem;") Rosselle Arnaiz-Cruz
+                                div T-Mobile USA, Inc.
+                            h5 Sr. Systems Analyst
+                            p(style="padding: 0 36px;")
+                                i.material-icons(style="transform: rotateY(180deg); font-size: 36px;") format_quote
+                                | Todd is an expert systems analyst which brings not just deep technical knowledge but also business acumen in every project that he worked in. Being with him in the same team of highly driven SAs, I can say that Todd is always able to rise up to the occasion and deliver beyond expectations. While he is able to see any crack in the project development and delivery process, he is also very quick in providing logical solutions and remedies. Todd is someone whom anyone who desires to ensure timely and quality project delivery would want to work with.
+                                br
+                                div(row content-end align-end)
+                                    i.material-icons(style="font-size: 36px; margin-top: -18px;") format_quote

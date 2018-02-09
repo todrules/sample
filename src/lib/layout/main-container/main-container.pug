@@ -1,0 +1,16 @@
+app-container
+    ui-toolbar('[color]'="color")
+        ng-container(start '*ngIf'="width >= 576")
+            toolbar-title('[title]'="'ACME, Inc.'" size="10" style="padding-top: 5px; font-weight: 700;")
+        ng-container(center)
+            toolbar-title('[title]'="title" size=1 style="margin-top: 8px;")
+        ng-container(end)
+            i.ui-social-twitter(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-facebook(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-instagram(style="margin: 0 0.5vw; cursor: pointer;")
+            i.ui-social-googleplus(style="margin: 0 0.5vw; cursor: pointer;")
+    main.content-container('#maincont')
+        ui-sidemenu('#side' '[ngClass]'="isPortrait ? 'portrait' : 'landscape'" )
+        article.article-content('[ngClass]'="isPortrait ? 'portrait' : 'landscape'")
+            ng-content
+

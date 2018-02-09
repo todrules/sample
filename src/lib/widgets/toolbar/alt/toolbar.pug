@@ -1,0 +1,7 @@
+header('#header' row nowrap content-end align-center)
+    section(select="[start]")
+        ng-content(select="[start]")
+    section(select="[center]")
+        ng-content(select="[center]")
+    section(select="[end]" '#endsection' style="vertical-align: center;")
+        ng-content(select="[end]")

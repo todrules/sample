@@ -1,0 +1,28 @@
+app-container( row content-center align-center)
+  div(col 'content-start' 'align-center' '#loginBg')
+    h1.display(style="color: #fff; margin-top: 2vh;" '#logintitle') login
+    ui-card(style="max-width: 500px; margin: 2vh 2vw;" '#uicard')
+      div(content)
+        form-input(
+          placeholder="Enter username"
+          type="text"
+          label="Username"
+          inputId="username"
+          required="true"
+          minlength=2
+          maxlength=64
+          '[hints]'="hints"
+          color="accent"
+          style="width: 100%;")
+        form-input(
+          placeholder="Enter password"
+          type="password"
+          label="Password"
+          inputId="password"
+          required="true"
+          minlength=4
+          maxlength=32
+          color="accent"
+          style="width: 100%;")
+      div(footer)
+        button(color="accent" raised '(click)'="goTo()" '#loginBtn') Login

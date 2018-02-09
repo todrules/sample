@@ -1,0 +1,7 @@
+header('#header')
+    section(select="[start]")
+        ng-content(select="[start]")
+    section(select="[center]" row content-center align-center)
+        ng-content(select="[center]")
+    section(select="[end]" '#endsection')
+        ng-content(select="[end]")

@@ -1,0 +1,30 @@
+div(row content-start align-start style="margin-top: 1vh;")
+    label.text-primary('[for]'="[inputId]" '#mylabel') {{label}}
+        ng-container('*ngIf'="required") *
+    textarea(
+        '(focus)'="focusInput()"
+        '(blur)'="blurInput()"
+        '#myinput'
+        '[rows]'="rows"
+        '[cols]'="cols"
+        '[id]'="inputId"
+        '[placeholder]'="placeholder"
+        '[required]'="required"
+        '[minlength]'="minlength"
+        '[maxlength]'="maxlength"
+        '#value'="ngModel"
+        '[(ngModel)]'="model.value"
+        style="margin: 0 1vw;"
+        'name'="value"
+        '[ngClass]'="{'isvalid': (!value?.invalid && (value?.dirty || value?.touched))}")
+    form-alert(
+        '[hints]'="hints"
+        '[warnings]'="warnings"
+        '[requiredErr]'="value?.errors?.required"
+        '[emailErr]'="value?.errors?.email"
+        '[minlengthErr]'="value?.errors?.minlength"
+        '[maxlengthErr]'="value?.errors?.maxlength"
+        '[invalid]'="value?.invalid"
+        '[dirty]'="value?.dirty"
+        '[touched]'="value?.touched"
+        style="width: 100%;")

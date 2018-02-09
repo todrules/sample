@@ -1,0 +1,7 @@
+div(row content-apart align-start nowrap style="width: 100%;")
+    div(column content-start align-start style="width: 100%;")
+        ng-container('*ngFor'="let hint of hints")
+            alert-msg.hint('[msg]'="hint?.msg" '*ngIf'="hint?.hasErr" '[type]'="'hint'")
+    div(column content-start align-end style="width: 100%;")
+        ng-container('*ngFor'="let warning of warnings")
+            alert-msg.warning('[msg]'="warning?.msg" '[type]'="'error'" '*ngIf'="(dirty || touched) && invalid && ((requiredErr && warning?.name === 'required') || (minlengthErr && warning?.name === 'minlength') || (maxlengthErr && warning?.name === 'maxlength') || (emailErr && warning?.name === 'email'))")

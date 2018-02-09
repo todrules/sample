@@ -6,10 +6,11 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "www",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "../node_modules/amcharts3/amcharts/images"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -21,11 +22,20 @@
       "styles": [
         "styles.scss"
       ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
+      "scripts": [
+        "../node_modules/amcharts3/amcharts/amcharts.js",
+        "../node_modules/amcharts3/amcharts/funnel.js",
+        "../node_modules/amcharts3/amcharts/gantt.js",
+        "../node_modules/amcharts3/amcharts/gauge.js",
+        "../node_modules/amcharts3/amcharts/pie.js",
+        "../node_modules/amcharts3/amcharts/radar.js",
+        "../node_modules/amcharts3/amcharts/serial.js",
+        "../node_modules/amcharts3/amcharts/xy.js"
+      ],
+      "environmentSource": "config/env/env.ts",
       "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "dev": "config/env/env.ts",
+        "prod": "config/env/env.prod.ts"
       }
     }
   ],
