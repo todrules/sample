@@ -1,6 +1,3 @@
-// Theme is changed based on the color & type files below.
-// This file imports the $theme-colors color map.
-@import "themes/colors/theme.default";
 // This file imports the font types to be used in the app.
 @import "themes/typography/wp.types";
 
@@ -16,7 +13,7 @@ $default-colors: (
 	light: #f2f2f2
 );
 
-$colors: map-merge($default-colors, $theme-colors);
+$colors: $default-colors;
 
 $primary: map-get($colors, primary) !default;
 $secondary: map-get($colors, secondary) !default;

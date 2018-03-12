@@ -1,0 +1,8 @@
+div(style="padding: 1vh 1vw;")
+    ng-container('*ngFor'="let job of jobs")
+        div(row content-apart align-center)
+            h3(style="margin: 0; margin-bottom: 0.5rem;") {{job.jobtitle}}
+            div {{job.dates}}
+        h5 {{job.employer}}
+        ul()
+            li('*ngFor'="let bullet of job.bullets") {{bullet.text}}

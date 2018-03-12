@@ -18,8 +18,7 @@ export class SideMenu {
   
   constructor(private router: Router, private themeService: ThemeService) {
     themeService.activeTheme.subscribe((theme) => {
-      const lt = shady(theme.light, 0.3);
-     console.log('lt', lt);
+      const lt = themeService.shady(theme.light, 0.05);
       setTimeout(() => {
         this.sidediv.nativeElement.style.backgroundColor = lt;
        

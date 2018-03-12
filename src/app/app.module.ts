@@ -12,7 +12,7 @@ import { ServicesModule } from '../services/services.module';
 import { Themes } from './views/themes/themes';
 import { HomePage } from './views/home/home';
 import { Slide3 } from './views/home/slides/slide3/slide3';
-import { ResumeView } from './views/resume/resume';
+import { ResumeModule } from './views/resume/resume.module';
 
 
 
@@ -22,6 +22,7 @@ import { ResumeView } from './views/resume/resume';
     BrowserAnimationsModule,
     ImportsModule,
     ServicesModule.forRoot(),
+    ResumeModule,
     AppRoutingModule
   ],
   declarations: [
@@ -30,7 +31,6 @@ import { ResumeView } from './views/resume/resume';
     Dashboard,
     Themes,
     HomePage,
-    ResumeView,
     Slide3
   ],
   providers: [
@@ -47,7 +47,7 @@ import { ResumeView } from './views/resume/resume';
     Themes,
     ServicesModule,
     HomePage,
-    ResumeView,
+    ResumeModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

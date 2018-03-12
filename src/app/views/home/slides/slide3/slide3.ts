@@ -36,13 +36,15 @@ export class Slide3 implements OnDestroy, AfterViewInit {
   constructor(private themeService: ThemeService) {
     themeService.activeTheme.subscribe((theme) => {
     
-      const colorLt = shady(theme.accent, 0.3);
-      const cont = contrastinator(theme.primary, theme.dark, theme.light);
-      const lt = shady(cont, 0.2);
+      const colorLt = themeService.shady(theme.accent, 0.05, 'rgba', 0.3);
+      const colorDk = themeService.shady(theme.accent, -0.05, 'rgba', 0.15);
+      const cont = themeService.contrastinator(theme.primary, theme.dark, theme.light);
+
       setTimeout(() => {
         this.coloredDiv.nativeElement.style.backgroundColor = 'rgba(0,0,0,0.3)';
         this.activeBtn.nativeElement.style.backgroundColor = theme.accent;
-        this.activeBtn.nativeElement.style.color = contrastinator(theme.accent, theme.dark, theme.light);
+        this.activeBtn.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDk} 0, ${colorLt} 100%)`;
+        this.activeBtn.nativeElement.style.color = themeService.contrastinator(theme.accent, theme.dark, theme.light);
         this.slidetitle.nativeElement.style.color = theme.light;
       });
     

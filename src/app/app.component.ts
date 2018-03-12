@@ -11,16 +11,22 @@ export class AppComponent implements AfterViewInit {
   title = 'ui';
   
   constructor(private themeService: ThemeService, private ref: ChangeDetectorRef) {
+    themeService.activeTheme.subscribe((theme) => {
+    
+    });
   
+    themeService.allThemes.subscribe((themes) => {
+    
+      setTimeout(() => {
+      //  this.myThemes = themes;
+      });
+    
+    });
   }
   
   ngAfterViewInit() {
     setTimeout(() => {
-      this.themeService.activeTheme.subscribe((theme) => {
-           this.ref.detach();
-            console.log('should detect');
-        this.ref.reattach();
-      });
+    
     });
   }
 }

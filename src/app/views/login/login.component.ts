@@ -25,16 +25,15 @@ export class LoginComponent {
   
   constructor(private router: Router, private themeService: ThemeService) {
     themeService.activeTheme.subscribe((theme) => {
-      const colorDark = shady(theme.primary, -0.1);
-      const colorLt = shady(theme.primary, 0.1);
-      const cont = contrastinator(theme.primary, theme.dark, theme.light);
-      const lt = shady(cont, 0.2);
+      const colorDark = themeService.shady(theme.primary, -0.03, 'rgba', 0.3);
+      const colorLt = themeService.shady(theme.primary, 0.05, 'rgba', 0.3);
+      const cont = themeService.contrastinator(theme.primary, theme.dark, theme.light);
+      const lt = themeService.shady(cont, 0.2);
       setTimeout(() => {
         this.loginBg.nativeElement.style.backgroundColor = theme.primary;
-        this.loginBg.nativeElement.style.backgroundImage = `-webkit-linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
-        this.loginBg.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
-        this.loginBtn.nativeElement.style.backgroundColor = theme.secondary;
-        this.loginBtn.nativeElement.style.color = contrastinator(theme.secondary, theme.dark, theme.light);
+        this.loginBg.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${theme.primary} 0, ${colorLt} 80%)`;
+        this.loginBtn.nativeElement.style.backgroundColor = theme.accent;
+        this.loginBtn.nativeElement.style.color = themeService.contrastinator(theme.accent, theme.dark, theme.light);
         this.logintitle.nativeElement.style.color = lt;
       });
     

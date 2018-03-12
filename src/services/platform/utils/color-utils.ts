@@ -32,7 +32,7 @@ export function hexToRgb(hex) {
 }
 
 function getBrightness(color: string): number {
-  console.log(color);
+
   const rgb = hexToRgb(color);
   return (rgb.r * 0.299) + (rgb.g * 0.587) + (rgb.b * 0.114);
 }
@@ -51,7 +51,7 @@ export function shady(color: string, amount: number = 0.1, retType: string = 'he
   
   if(color[0] === '#') {
     rgb = Object.assign({}, rgb, hexToRgb(color));
-    console.log(rgb);
+   
   } else if(color[0] === 'r') {
     const arr = color.split(',');
     rgb.r = +arr[0];
@@ -84,3 +84,19 @@ export function shady(color: string, amount: number = 0.1, retType: string = 'he
   return newamt;
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

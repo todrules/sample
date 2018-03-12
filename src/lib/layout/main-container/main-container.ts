@@ -24,19 +24,7 @@ export class MainContainer implements OnInit, AfterViewInit {
   public sideBgColor;
   
   constructor(private platform: Platform, private themeService: ThemeService) {
-    themeService.activeTheme.subscribe((theme) => {
-      const colorDark = shady(theme.light, -0.1);
-      const colorLt = shady(theme.light, 0.1);
-      setTimeout(() => {
-        this.maincont.nativeElement.style.backgroundColor = theme.light;
-        this.maincont.nativeElement.style.backgroundImage = `-webkit-linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
-        this.maincont.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
-        this.maincont.nativeElement.style.color = theme.dark;
-
-       
-      });
-    
-    });
+  
   }
   
   ngOnInit() {
@@ -62,7 +50,19 @@ export class MainContainer implements OnInit, AfterViewInit {
   
   private viewInit = () => {
     setTimeout(() => {
-      // do something
+      this.themeService.activeTheme.subscribe((theme) => {
+        const colorDark = this.themeService.shady(theme.light, -0.1, 'rgba', 0.7);
+        const colorLt = this.themeService.shady(theme.light, 0.1, 'rgba', 0.7);
+        setTimeout(() => {
+          this.maincont.nativeElement.style.backgroundColor = theme.light;
+        //  this.maincont.nativeElement.style.backgroundImage = `-webkit-linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+          this.maincont.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+          this.maincont.nativeElement.style.color = theme.dark;
+      
+      
+        });
+    
+      });
     });
   }
   

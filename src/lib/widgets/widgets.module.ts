@@ -17,6 +17,7 @@ import { UiPyramidChart } from './charts/pyramid/pyramid-chart';
 import { AltToolbar } from './toolbar/alt/toolbar';
 import { FormTextArea } from './form/textarea/textarea';
 import { Gauge } from './gauge/gauge';
+import { NavButton } from './button/navbutton/navbutton';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { Gauge } from './gauge/gauge';
     UiPyramidChart,
     AltToolbar,
     FormTextArea,
-    Gauge
+    Gauge,
+    NavButton
   ],
   exports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { Gauge } from './gauge/gauge';
     UiPyramidChart,
     AltToolbar,
     FormTextArea,
-    Gauge
+    Gauge,
+    NavButton
   ],
   entryComponents: [
   

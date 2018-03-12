@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { contrastinator, shady } from '../../../services/platform/utils/color-utils';
 import { ThemeService } from '../../styles/theme';
 
@@ -7,24 +7,33 @@ import { ThemeService } from '../../styles/theme';
   templateUrl: './toolbar.pug',
   styleUrls: ['./toolbar.scss']
 })
-export class Toolbar {
+export class Toolbar implements AfterViewInit {
   
   @Input() color: string;
   @ViewChild('header') header;
   @ViewChild('endsection') endsection;
   
   constructor(private themeService: ThemeService) {
-    themeService.activeTheme.subscribe((theme) => {
-      const colorDark = shady(theme.primary, -0.1);
-      const colorLt = shady(theme.primary, 0.1);
-      const darker = shady(theme.primary, -0.3);
+  
+  }
+  
+  ngAfterViewInit() {
+    this.viewInit();
+  }
+  
+  private viewInit = () => {
+    this.themeService.activeTheme.subscribe((theme) => {
+      const colorDark = this.themeService.shady(theme[this.color], -0.05, 'rgba', 0.7);
+      const colorLt = this.themeService.shady(theme[this.color], 0.05, 'rgba', 0.7);
+      const darker = this.themeService.shady(theme[this.color], -0.3);
       setTimeout(() => {
-        this.header.nativeElement.style.backgroundColor = theme.primary;
-        this.header.nativeElement.style.backgroundImage = `-webkit-linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+        console.log('toolbar change', colorDark, colorLt);
+        this.header.nativeElement.style.backgroundColor = theme[this.color];
         this.header.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
-        this.header.nativeElement.style.color = contrastinator(theme.primary, theme.dark, theme.light);
+      //  this.header.nativeElement.style.backgroundImage = `linear-gradient(45deg, ${colorDark} 0, ${colorLt} 100%)`;
+        this.header.nativeElement.style.color = this.themeService.contrastinator(theme[this.color], theme.dark, theme.light);
         this.header.nativeElement.style.borderBottom = `1px solid ${darker}`;
-        this.endsection.nativeElement.style.color = contrastinator(theme.primary, theme.dark, theme.light);
+        this.endsection.nativeElement.style.color = this.themeService.contrastinator(theme[this.color], theme.dark, theme.light);
       });
     
     });

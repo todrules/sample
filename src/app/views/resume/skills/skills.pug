@@ -1,0 +1,4 @@
+div(style="padding: 1vh 1vw;" row content-start align-start)
+    ng-container('*ngFor'="let skill of skills")
+        div(style="text-align: center; width: 25%; margin: 1vh 0;" col content-center align-center nowrap)
+            ui-gauge('[amount]'="skill.amount" '[caption]'="skill.caption" col content-center align-center nowrap)

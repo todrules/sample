@@ -29,65 +29,6 @@ $border-radius: 2px;
 		color: $text-color;
 	}
 	
-	@each $key, $value in $colors {
-		
-		button[raised][color="#{$key}"] {
-			background-color: $value;
-		//	@include bg-gradient(color-shade($value, -0.1), $value);
-			color: contrastinator($value, $dark, $light);
-			border: 1px solid transparent;
-			&:focus {
-				box-shadow: 1px 1px 0 0.5em rgba($value, 0.5) -1px -1px 0 0.5em rgba($value, 0.5);
-			}
-			&:active {
-				box-shadow: 1px 1px 0 0.5em rgba($value, 0.5) -1px -1px 0 0.5em rgba($value, 0.5);
-			}
-		}
-		
-		button[raised][contrast="#{$key}"] {
-			background-color: contrastinator($value, $dark, $light);
-			color: $value;
-			
-			
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba(contrastinator($value, $dark, $light), 0.25);
-			}
-			
-		}
-		
-		button[outline][color="#{$key}"] {
-			background-color: transparent;
-			border: 1px solid $value;
-			color: $value;
-			
-			
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($value, 0.5);
-			}
-			
-			&:disabled {
-				border: 1px solid rgba($value, 0.5);
-				color: rgba($value, 0.5);
-			}
-			
-			&:hover {
-				color: rgba($value, 0.5);
-				border-color: rgba($value, 0.5);
-			}
-		}
-		
-		button[color="#{$key}"] {
-			background-color: rgba($value, 0.15);
-			color: $value;
-			
-			
-			&:focus {
-				box-shadow: 0 0 0 0.2rem rgba($value, 0.25);
-			}
-			
-		}
-		
-	}
 	
 }
 /**
@@ -115,23 +56,23 @@ button {
 	// box-shadow: inset 0 1px 0 rgba($light, .15), 0 1px 1px rgba($dark, .075);
 	padding: $button-vert-padding $button-horiz-padding;
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	filter: brightness(120%);
+	filter: brightness(100%);
 	
 	&:active {
 		outline: none !important;
-		filter: brightness(100%);
+		filter: brightness(120%);
 	}
 	
 	&:focus {
 		text-decoration: none;
 		outline: none !important;
-		filter: brightness(100%);
+		filter: brightness(120%);
 	}
 	
 	&:hover {
 		text-decoration: none;
 		cursor: pointer;
-		filter: brightness(100%);
+		filter: brightness(120%);
 	}
 	
 	&::-moz-focus-inner {

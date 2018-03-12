@@ -20,6 +20,12 @@ export interface Bullet {
   text: string;
 }
 
+export interface Education {
+  school: string;
+  dates?: string;
+  degree?: string;
+}
+
 @Component({
   selector: 'resume-view',
   templateUrl: './resume.pug',
@@ -40,30 +46,18 @@ export interface Bullet {
 export class ResumeView {
   
   @ViewChild('imgscreen') imgscreen;
-  @ViewChild('cardheader') cardheader;
-  @ViewChild('lastname') lastname;
-  @ViewChild('firstname') firstname;
-  @ViewChild('imgdiv') imgdiv;
-  @ViewChild('firsttier') firsttier;
-  @ViewChild('social') social;
   
-  @ViewChild('phonelabel') phonelabel;
-  @ViewChild('phonelink') phonelink;
-  @ViewChild('emaillabel') emaillabel;
-  @ViewChild('emaillink') emaillink;
-  @ViewChild('linkedlabel') linkedlabel;
-  @ViewChild('linkedlink') linkedlink;
-  @ViewChild('profilediv') profilediv;
-  @ViewChild('header1') header1;
-  @ViewChild('header2') header2;
-  @ViewChild('header3') header3;
-  @ViewChild('header4') header4;
-  @ViewChild('card1') card1;
-  @ViewChild('card2') card2;
-  @ViewChild('card3') card3;
-  @ViewChild('card4') card4;
-  @ViewChild('contact') contact;
-  @ViewChild('profile') profile;
+  public schools: Education[] = [
+    {school: 'University of Phoenix', dates: '2002 - 2003', degree: 'Computer Science (No degree)'},
+    {school: 'El Paso Community College', dates: '1998 - 2000', degree: 'Associate of Applied Science, Computer Information Systems'},
+    {school: 'Basic NCO Course (BNCOC)', dates: '1997', degree: 'NCOPD - NCO Professional Development Ribbon'},
+    {school: 'Primary Leadership Development Course (PLDC)', dates: '1995', degree: 'NCOPD - NCO Professional Development Ribbon'},
+    {school: 'Nuclear, Biological, and Chemical Defense', dates: '1995', degree: 'Distinguished Honor Graduate - Certificate of Achievement'},
+    {school: 'Hawk Missile System Training', dates: '1993', degree: 'Distinguished Honor Graduate - Army Achievement Medal'},
+    {school: 'Basic Training - US Army', dates: '1992', degree: 'Push-up Guru'},
+  ];
+  
+  
   
   public skills: GaugeInterface[] = [
     {amount: 96, caption: 'Systems Analysis'},
@@ -130,52 +124,18 @@ export class ResumeView {
   
   constructor(private router: Router, private themeService: ThemeService) {
     themeService.activeTheme.subscribe((theme) => {
-      const colorDark = shady(theme.secondary, -0.2);
-      const moreDark = shady(theme.light, -0.1, 'hex');
-      const colorLt = shady(theme.dark, 0.3);
-      const cont = contrastinator(theme.primary, theme.dark, theme.light);
-      const lt = shady(cont, 0.2);
-      const shade1 = shady(theme.dark, 0.2);
-      const shade2 = shady(theme.dark, 0.4);
-      const shade3 = shady(theme.secondary, 0.2);
-      const ltRGB = shady(theme.light, 0.3, 'rgba', 0.8);
+      const colorDark = this.themeService.shady(theme.secondary, -0.2);
+      const moreDark = this.themeService.shady(theme.light, -0.1, 'hex');
+      const colorLt = this.themeService.shady(theme.dark, 0.3);
+      const cont = this.themeService.contrastinator(theme.primary, theme.dark, theme.light);
+      const lt = this.themeService.shady(cont, 0.2);
+      const shade1 = this.themeService.shady(theme.dark, 0.2);
+      const shade2 = this.themeService.shady(theme.dark, 0.4);
+      const shade3 = this.themeService.shady(theme.secondary, 0.2);
+      const ltRGB = this.themeService.shady(theme.light, 0.3, 'rgba', 0.8);
       setTimeout(() => {
-        this.cardheader.nativeElement.style.backgroundColor = theme.secondary;
-        this.lastname.nativeElement.style.color = theme.secondary;
-        this.lastname.nativeElement.style.fontWeight = 700;
-        this.firstname.nativeElement.style.color = colorLt;
-        this.firstname.nativeElement.style.fontWeight = 500;
-        this.imgdiv.nativeElement.style.border = `1px dashed ${colorDark}`;
-        this.firsttier.nativeElement.style.color = shade1;
-        this.social.nativeElement.style.color = theme.secondary;
-        this.phonelabel.nativeElement.style.color = shade1;
-        this.emaillabel.nativeElement.style.color = shade1;
-        this.linkedlabel.nativeElement.style.color = shade1;
-        this.phonelink.nativeElement.style.color = shade3;
-        this.emaillink.nativeElement.style.color = shade3;
-        this.linkedlink.nativeElement.style.color = shade3;
-        this.phonelink.nativeElement.style.textDecoration = 'none';
-        this.emaillink.nativeElement.style.textDecoration = 'none';
-        this.linkedlink.nativeElement.style.textDecoration = 'none';
-        this.profilediv.nativeElement.style.backgroundColor = ltRGB;
-        this.header1.nativeElement.style.backgroundColor = contrastinator(theme.secondary, shady(theme.light, -0.1, 'hex'), theme.dark);
-        this.header1.nativeElement.style.color = theme.secondary;
-        this.header2.nativeElement.style.backgroundColor = contrastinator(theme.secondary, shady(theme.light, -0.1, 'hex'), theme.dark);
-        this.header2.nativeElement.style.color = theme.secondary;
-        this.header3.nativeElement.style.backgroundColor = contrastinator(theme.secondary, shady(theme.light, -0.1, 'hex'), theme.dark);
-        this.header3.nativeElement.style.color = theme.secondary;
-        this.header4.nativeElement.style.backgroundColor = contrastinator(theme.secondary, shady(theme.light, -0.1, 'hex'), theme.dark);
-        this.header4.nativeElement.style.color = theme.secondary;
-        this.card1.nativeElement.style.backgroundColor = shady(theme.light, 0.4);
-        this.card1.nativeElement.style.color = theme.dark;
-        this.card2.nativeElement.style.backgroundColor = shady(theme.light, 0.4);
-        this.card2.nativeElement.style.color = theme.dark;
-        this.card3.nativeElement.style.backgroundColor = shady(theme.light, 0.4);
-        this.card3.nativeElement.style.color = theme.dark;
-        this.card4.nativeElement.style.backgroundColor = shady(theme.light, 0.4);
-        this.card4.nativeElement.style.color = theme.dark;
-        this.contact.nativeElement.style.color = shady(theme.dark, 0.3);
-        this.profile.nativeElement.style.color = shady(theme.dark, 0.3);
+        
+        
         this.imgscreen.nativeElement.style.backgroundColor = shady(theme.light, 0.4, 'rgba', 0.8);
       });
       

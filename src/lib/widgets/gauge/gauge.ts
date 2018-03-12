@@ -19,21 +19,26 @@ export class Gauge implements AfterViewInit, OnInit {
   
   public capClass;
   public amt80 = true;
+  public step = 0;
+  public bt = 1;
+  public con = 1;
+  public sat = 1;
+  public reverse = false;
   
   constructor(private themeService: ThemeService) {
     themeService.activeTheme.subscribe((theme) => {
-      const hintcol = shady(theme.dark, 0.3);
+      
       setTimeout(() => {
         if(+this.amount >= 80) {
           this.amt80 = true;
           this.bar.nativeElement.style.borderColor = theme.success;
           this.fill.nativeElement.style.borderColor = theme.success;
-          this.cspan.nativeElement.style.color = theme.success;
+          this.cspan.nativeElement.style.color = theme.dark;
         } else {
           this.amt80 = false;
           this.bar.nativeElement.style.borderColor = theme.warn;
           this.fill.nativeElement.style.borderColor = theme.warn;
-          this.cspan.nativeElement.style.color = theme.warn;
+          this.cspan.nativeElement.style.color = theme.dark;
         }
         
       });
@@ -41,6 +46,7 @@ export class Gauge implements AfterViewInit, OnInit {
     });
    
   }
+  
   
   ngOnInit() {
     this.init();

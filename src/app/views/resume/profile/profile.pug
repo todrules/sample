@@ -1,0 +1,30 @@
+div.profilediv('#profilediv')
+    div(style="border-radius: 0; padding: 2vh 2vw; min-height: 4vh;" '#cardheader' nowrap row content-start align-center)
+        nav-button('url'="home" 'bgColor'="secondary" 'icon'="home" 'label'="home")
+        nav-button('url'="dashboard" 'bgColor'="secondary" 'icon'="dashboard" 'label'="dashboard")
+        nav-button('url'="themes" 'bgColor'="secondary" 'icon'="color_lens" 'label'="themes")
+    div(style="width: 100%; height: 100%; padding-top: 5vh;" col content-start align-center nowrap)
+        div(style="width: 100%; padding: 0 3vw;")
+            h5.display('#profile') Profile
+        div(row content-start align-start nowrap)
+            div(style="width: 50%;")
+                div( '#imgdiv' style="background-image: url('/assets/img/profile3.jpg'); background-position: center center; background-repeat: no-repeat; background-size: 100%; width: 14vmin; height: 14vmin; border-radius: 0; filter: brightness(1) sepia(0.5) opacity(0.7); margin-left: 3vw;")
+            div(col content-start align-start nowrap style="width: 50%; padding-top: 2vh;")
+                h3.display(style="font-weight: 700; margin-bottom: 0;" '#firstname') Todd&nbsp;
+                    div('#lastname' style="padding-top: 2px;") Goodwin
+        h4(style="margin: 7vh 0 2vh 0;" '#firsttier') &nbsp;&nbsp; systems analyst | web developer | digital architect
+        h3('#social' style="margin-top: 1vh; margin-bottom: 4vh;")
+            i.ui-social-twitter(style="margin: 1vh 0.75vw; cursor: pointer;")
+            i.ui-social-github(style="margin: 1vh 0.75vw; cursor: pointer;")
+            i.ui-social-linkedin(style="margin: 1vh 0.75vw; cursor: pointer;")
+            i.ui-social-googleplus(style="margin: 1vh 0.75vw; cursor: pointer;")
+        hr(style="color: #000; height: 1px; width: 80%; margin: 0 10px;")
+        div(style="width: 100%; padding: 3vh 2vw 0 3vw;")
+            h5.display('#contact') Contact
+        div(style="width: 100%; padding: 1vh 0 0 3vw;" col content-start align-start)
+            h4('#phonelabel') phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                a(href="tel:4422353530" '#phonelink') 442.235.3530
+            h4('#emaillabel') email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                a(href="email:todd@digitaltech.pro?subject=Resume" '#emaillink') todd@digitaltech.pro
+            h4('#linkedlabel') linkedin:&nbsp;&nbsp;&nbsp;
+                a(href="http://linkedin.com/in/gtgoodwin" '#linkedlink') http://linkedin.com/in/gtgoodwin

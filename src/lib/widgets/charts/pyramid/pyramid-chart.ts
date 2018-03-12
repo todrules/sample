@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { AmChart, AmChartsService } from '@amcharts/amcharts3-angular';
-import { lightTheme } from '../themes/default';
 import { ThemeService } from '../../../styles/theme';
 
 
