@@ -1,27 +1,52 @@
-# Sample
+# Sample project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
+### Built With
 
-## Development server
+* Angular 5.2.0
+* TypeScript
+* Nodejs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features 
 
-## Code scaffolding
+Built with Angular. I'm using my own UI library and themer and my own Flex layout CSS, so there are no dependencies on Angular Material or Angular Flex-Layout.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Login
 
-## Build
+No username or password are required. Only need to click the button to be let in.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Dashboard
 
-## Running unit tests
+Examples using AmCharts.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Themes
 
-## Running end-to-end tests
+Theme selector. Will change the entire color scheme not only for buttons, but also background colors, chart colors, etc...
+Changes every page, too.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Resume
 
-## Further help
+Shows a different design style.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Home
+
+This is my design for a one-page style type website.
+
+#### Notes
+
+If you view this app, please use in Chrome. This was also an experiment using custom CSS properties, to be able to use "variables" in an actual CSS file and not just in a preprocessor.
+That being said, MS (IE & Edge) have bugs using custom CSS properties in a CSS calc statement, so this site will not render properly using those browsers.
+
+```
+
+ h1 {
+   line-height: calc(var(--h1-adjust) * 1.1);
+ }
+ ```
+
+Also, except for the charts, all the UI I created myself - no UI libraries.
+
+Hopefully, this project shows a little of my coding style, as well as my UI design style and knowledge of the various libraries and frameworks.
+
+#### Any Questions?
+
+You can email me at [todd@digitaltech.pro](mailto:todd@digitaltech.pro) or give me a call or text.
